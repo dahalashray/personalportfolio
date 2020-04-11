@@ -60,36 +60,21 @@
 </header>
 
 <main role="main">
+  <div>
 
-  <section class="jumbotron text-center">
-    <div class="container">
-        <h1>Hi! I'm Ashray.</h1>
-        <p class="lead text-muted">This is my Personal Portfolio made using Django framework.</p>
-        <p>
-            <a href="mailto:dahalashray@gmail.com" class="btn btn-primary my-2">Email me</a>
-        </p>
-    </div>
-  </section>
+  <h1 class="text-center pt-3">Welcome to Ashray's Blog.</h1>
+  <br />
+  <br />
+  <h2>Latest Posts</h2>
+  <hr />
 
-  <div class="album py-5 bg-light">
-    <div class="container">
+  {% for blog in blogs.all %}
+  <a href=""><h3>{{ blog.title }}</h3></a>
+  {{ blog.pub_date }}
+  <br />
+  <img src="{{ blog.image.url }}"height=200 widht="150">
+  {%  endfor %}
 
-      <div class="row">
-
-        {% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{ job.image.url }}"width="200" height="150" />
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-              
-            </div>
-          </div>
-        </div>
-        {% endfor %} 
-       
-      </div>
-    </div>
   </div>
 
 </main>
